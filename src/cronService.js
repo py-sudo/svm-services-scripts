@@ -38,8 +38,8 @@ async function checkStatus(url){
                 websitesDown = websitesDown.filter((link)=>link!==url);
             }
             console.log('websiteUp',websitesDown)
-            console.log('websiteUp',emailSent)
-            console.log('websiteUp',downtime)
+            // console.log('websiteUp',emailSent)
+            // console.log('websiteUp',downtime)
         }catch(error){
 
             console.log(url,'down');
@@ -48,13 +48,13 @@ async function checkStatus(url){
 
                 downtime[url] = moment();
                 emailSent[url] = true;
-                let subject = `${url} is down`;
+                let subject = `${url} is down ${moment().format()}`;
                 EmailService.sendRawEmail(to,subject);
                 websitesDown.push(url);
             }
             console.log('websitesDown',websitesDown)
-            console.log('websitesDown',emailSent)
-            console.log('websitesDown',downtime)
+            // console.log('websitesDown',emailSent)
+            // console.log('websitesDown',downtime)
             
             // throw error;
         }
