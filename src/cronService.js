@@ -66,7 +66,7 @@ class CronJobs {
         // monitor websites.
         // every 10 mins.
         // 
-        cron.schedule('* */10 * * * *',async () => {
+        cron.schedule('0 */10 * * * *',async () => {
             try{
                 config.monitoredUrls.forEach(url=>{
                     checkStatus(url);
